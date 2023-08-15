@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@use 'sass/config/variables' as v;
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -118,7 +117,6 @@ body {
   align-items: center;
 }
 
-
 /* ANIMACIONES */
 
 .grid-item {
@@ -129,7 +127,6 @@ body {
   transform: scale(1.05);
 }
 
-
 .grid-item {
   transition: background-color 0.3s ease;
 }
@@ -137,7 +134,6 @@ body {
 .grid-item:hover {
   background-color: #85cc5a;
 }
-
 
 .circle {
   transition: transform 0.5s ease;
@@ -152,16 +148,16 @@ body {
 }
 
 .terminos-box:hover {
-  background-color: #67BB3E; 
+  background-color: #67bb3e;
   color: #fff;
 }
 
-.gray-container{
+.gray-container {
   transition: background-color 0.3s ease;
 }
 
 .gray-container:hover {
-  background-color: #434343; 
+  background-color: #434343;
 }
 
 /* DISEÑO TABLET Y MÓVIL */
@@ -226,8 +222,8 @@ body {
     flex-direction: column;
     align-items: flex-start;
     margin-top: 40px;
-    grid-column: 1 / span 2; 
-    grid-row: auto; 
+    grid-column: 1 / span 2;
+    grid-row: auto;
   }
 
   .terminos-box {
