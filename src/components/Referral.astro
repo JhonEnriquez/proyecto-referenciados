@@ -1,0 +1,15 @@
+---
+import 'sass/components/referrals.scss'
+
+interface Props {
+  paragraph: string
+  index: number
+}
+
+const { index, paragraph } = Astro.props
+---
+
+<li class='referral'>
+  <span class='referral-counter'>{index + 1}</span>
+  <p>{paragraph}</p>
+</li>
