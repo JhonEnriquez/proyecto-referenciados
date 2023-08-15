@@ -1,56 +1,40 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import { getReferrals } from '@/helpers/referrals.service'
+import Referrals from '@/components/Referral.astro'
+
 import 'sass/pages/home.scss'
+
+const referrals = await getReferrals()
 ---
 
 <Layout title='Welcome to Astro.'>
-  <div class='container'>
-    <h1 class='title'>Refiere y Gana</h1>
-    <div class='grid-container'>
-      <div class='grid-item item1'>
-        <span class='circle'>1</span>
-        <p>
-          Llena tus datos en el formulario y dale click en compartir, podrás enviar el link a
-          cualquier persona que desees referir.
-        </p>
-      </div>
-      <div class='grid-item item2'>
-        <span class='circle'>2</span>
-        <p>Tu referido deberá ingresar al link compartido y llenar sus datos en el formulario.</p>
-      </div>
-      <div class='grid-item item3'>
-        <span class='circle'>3</span>
-        <p>
-          Un asesor se pondrá en contacto con la persona que referiste para brindarle la información
-          del proyecto.
-        </p>
-      </div>
-      <div class='grid-item item4'>
-        <span class='circle'>4</span>
-        <p>
-          Si tu referido compra en alguno de nuestros proyectos, serás acreedor del bono de
-          referido.
-        </p>
-      </div>
+  <h2 class='title'>Refiere y Gana</h2>
+  <section class='referrals'>
+    <ul class='referrals-list'>
+      {
+        referrals.map((data, i) => {
+          return <Referrals index={i} paragraph={data} />
+        })
+      }
+    </ul>
+    <h3 class='referrals-paragraph'>¿Cómo referir a un<br />amigo o familiar?</h3>
+  </section>
+  <section class='terms'>
+    <h3 class='terms-paragraph'>Términos y<br /> condiciones</h3>
+    <div class='terms-container'>
+      <p>
+        El bono varía según el proyecto en el que compre la persona referida. El cobro del bono se
+        podrá realizar una vez que la persona que haya referido firme el contrato de compra – venta,
+        previa coordinación con el área de marketing. El plazo para pagar el bono es de 30 días
+        hábiles una vez ingresado el comprobante de pago. No se considera referido a una persona que
+        se encuentre registrada en la base de datos de Casa Verde Inmobiliaria. El bono es por
+        persona, independientemente de la cantidad de departamentos que compre la persona referida.
+      </p>
     </div>
-    <div class='referencia-texto'>
-      <p>¿Cómo referir a un amigo o familiar?</p>
-    </div>
-    <div class='terminos-container'>
-      <div class='terminos-box'>
-        <p>Términos y condiciones</p>
-      </div>
-      <div class='gray-container'>
-        <p>
-          El bono varía según el proyecto en el que compre la persona referida. El cobro del bono se
-          podrá realizar una vez que la persona que haya referido firme el contrato de compra –
-          venta, previa coordinación con el área de marketing. El plazo para pagar el bono es de 30
-          días hábiles una vez ingresado el comprobante de pago. No se considera referido a una
-          persona que se encuentre registrada en la base de datos de Casa Verde Inmobiliaria. El
-          bono es por persona, independientemente de la cantidad de departamentos que compre la
-          persona referida.
-        </p>
-      </div>
-    </div>
-  </div>
+  </section>
+  <section class='more'>
+    <h3>¡Déjanos tus datos o visitanos...!</h3>
+    <p>Nosotros te ayudaremos a escoger tu depa soñado</p>
+  </section>
 </Layout>
